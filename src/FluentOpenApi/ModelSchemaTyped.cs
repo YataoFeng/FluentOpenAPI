@@ -18,7 +18,7 @@ public abstract class ModelSchema<T> : ModelSchema where T : class
         provider.AddSchema(_schema);
     }
 
-    public PropertyRuleBuilder<T, TProperty> PropertyFor<TProperty>(Expression<Func<T, TProperty>> propertyExpression)
+    public PropertyRuleBuilder<T, TProperty> For<TProperty>(Expression<Func<T, TProperty>> propertyExpression)
     {
         var propertyName = ((MemberExpression)propertyExpression.Body).Member.Name;
         return new PropertyRuleBuilder<T, TProperty>(this, propertyName);
