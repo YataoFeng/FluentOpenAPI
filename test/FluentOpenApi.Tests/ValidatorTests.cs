@@ -1,13 +1,13 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using FluentOpenAPI.Providers;
-using FluentOpenAPI.Rules;
-using FluentOpenAPI.Test.Model;
-using FluentOpenAPI.Test.Schemas;
-using FluentOpenAPI.Validation;
-using FluentOpenAPI.Validators;
+using FluentOpenApi.Providers;
+using FluentOpenApi.Rules;
+using FluentOpenApi.Test.Model;
+using FluentOpenApi.Test.Schemas;
+using FluentOpenApi.Validation;
+using FluentOpenApi.Validators;
 
-namespace FluentOpenAPI.Test;
+namespace FluentOpenApi.Test;
 public class ValidatorTests
 {
     private readonly Fixture _fixture;

@@ -1,6 +1,6 @@
-﻿using FluentOpenAPI.Rules;
+﻿using FluentOpenApi.Rules;
 
-namespace FluentOpenAPI.Validators;
+namespace FluentOpenApi.Validators;
 public class MinLengthValidator : Validator<string>
 {
     private readonly MinLengthRule _rule;

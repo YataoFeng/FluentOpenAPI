@@ -1,4 +1,4 @@
-﻿namespace FluentOpenAPI.Models;
+﻿namespace FluentOpenApi.Models;
 public class ValidationResult
 {
     public bool IsValid { get; }

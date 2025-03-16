@@ -12,7 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\FluentOpenAPI\FluentOpenAPI.csproj" />
+	  <ProjectReference Include="..\..\src\FluentOpenApi\FluentOpenApi.csproj" />
 	</ItemGroup>
 
 </Project>

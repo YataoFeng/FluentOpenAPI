@@ -1,5 +1,5 @@
-﻿using FluentOpenAPI;
-using FluentOpenAPI.Extensions;
+﻿using FluentOpenApi;
+using FluentOpenApi.Extensions;
 
 namespace WebApp;
 

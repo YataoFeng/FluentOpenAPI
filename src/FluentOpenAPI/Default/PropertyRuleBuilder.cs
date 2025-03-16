@@ -1,8 +1,8 @@
-﻿using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validators;
+﻿using FluentOpenApi.Rules;
+using FluentOpenApi.Validators;
 using System.Data;
 
-namespace FluentOpenAPI.Default;
+namespace FluentOpenApi.Default;
 public class PropertyRuleBuilder<T, TProperty> where T : class
 {
     private readonly ModelSchema<T> _schema;

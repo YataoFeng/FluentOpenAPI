@@ -1,10 +1,10 @@
-﻿using FluentOpenAPI.Default;
-using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validators;
+﻿using FluentOpenApi.Default;
+using FluentOpenApi.Rules;
+using FluentOpenApi.Validators;
 using Microsoft.OpenApi.Any;
 using System.Linq.Expressions;
 
-namespace FluentOpenAPI.Extensions;
+namespace FluentOpenApi.Extensions;
 
 public static class SchemaExtensions
 {

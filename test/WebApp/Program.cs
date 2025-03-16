@@ -1,16 +1,14 @@
-using FluentOpenAPI.Extensions;
+using FluentOpenApi.Extensions;
 using Scalar.AspNetCore;
 using WebApp;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddFluentOpenAPI(o =>
+builder.Services.AddFluentOpenApi(o =>
 {
     o.AddSchema<PersonSchema>();
 });
-builder.Services.AddOpenApi(o =>
-{
-    o.AddFluentSchemaTransformer();
-});
+builder.Services.AddOpenApi(o => o.AddFluentSchemaTransformer());
+
 var app = builder.Build();
 
 app.MapOpenApi();

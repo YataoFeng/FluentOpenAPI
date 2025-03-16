@@ -1,10 +1,10 @@
-﻿using FluentOpenAPI.Providers;
-using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validation;
+﻿using FluentOpenApi.Providers;
+using FluentOpenApi.Rules;
+using FluentOpenApi.Validation;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FluentOpenAPI.Extensions;
+namespace FluentOpenApi.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -39,7 +39,7 @@ public static class ServiceCollectionExtensions
             return Task.CompletedTask;
         });
     }
-    public static IServiceCollection AddFluentOpenAPI(this IServiceCollection services, Action<FluentOpenApiBuilder> configure)
+    public static IServiceCollection AddFluentOpenApi(this IServiceCollection services, Action<FluentOpenApiBuilder> configure)
     {
         var builder = new FluentOpenApiBuilder(services);
         configure(builder);

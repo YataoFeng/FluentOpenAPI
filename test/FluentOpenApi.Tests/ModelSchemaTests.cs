@@ -1,15 +1,15 @@
 ﻿using AutoFixture;
 using FluentAssertions;
-using FluentOpenAPI.Default;
-using FluentOpenAPI.Providers;
-using FluentOpenAPI.Rules;
-using FluentOpenAPI.Test.Model;
-using FluentOpenAPI.Test.Schemas;
-using FluentOpenAPI.Validators;
+using FluentOpenApi.Default;
+using FluentOpenApi.Providers;
+using FluentOpenApi.Rules;
+using FluentOpenApi.Test.Model;
+using FluentOpenApi.Test.Schemas;
+using FluentOpenApi.Validators;
 using Microsoft.OpenApi.Any;
 using Moq;
 
-namespace FluentOpenAPI.Test;
+namespace FluentOpenApi.Test;
 
 public class ModelSchemaTests
 {

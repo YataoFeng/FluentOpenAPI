@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Rules;
+﻿using FluentOpenApi.Rules;
 using System.Text.RegularExpressions;
 
-namespace FluentOpenAPI.Validators;
+namespace FluentOpenApi.Validators;
 public class PatternValidator : Validator<string>
 {
     private readonly PatternRule _rule;

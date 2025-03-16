@@ -1,6 +1,6 @@
-﻿using FluentOpenAPI.Models;
+﻿using FluentOpenApi.Models;
 
-namespace FluentOpenAPI.Default;
+namespace FluentOpenApi.Default;
 public abstract class SchemaValidator
 {
     public abstract ValidationResult ValidateForObject(object instance);

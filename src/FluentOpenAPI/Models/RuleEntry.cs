@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validators;
+﻿using FluentOpenApi.Rules;
+using FluentOpenApi.Validators;
 
-namespace FluentOpenAPI.Models;
+namespace FluentOpenApi.Models;
 public class RuleEntry<T>(string name, Func<T, object?> getValue, SchemaRule rule, Validator? validator, Func<object, bool>? check)
 {
     public string Name { get; } = name;

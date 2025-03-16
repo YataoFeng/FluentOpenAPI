@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace FluentOpenAPI.Rules;
+namespace FluentOpenApi.Rules;
 public class DescriptionRule : SchemaRule
 {
     public string? Description { get; protected set; }

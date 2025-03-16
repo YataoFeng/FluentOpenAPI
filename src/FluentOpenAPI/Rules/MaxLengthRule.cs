@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace FluentOpenAPI.Rules;
+namespace FluentOpenApi.Rules;
 public class MaxLengthRule : SchemaRule
 {
     public int MaxLength { get; }

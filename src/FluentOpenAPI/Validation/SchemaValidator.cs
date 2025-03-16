@@ -1,8 +1,8 @@
-﻿using FluentOpenAPI.Default;
-using FluentOpenAPI.Models;
+﻿using FluentOpenApi.Default;
+using FluentOpenApi.Models;
 using System.Linq.Expressions;
 
-namespace FluentOpenAPI.Validation;
+namespace FluentOpenApi.Validation;
 public class SchemaValidator<T> : SchemaValidator where T : class
 {
     private readonly IOpenApiSchema _schema;

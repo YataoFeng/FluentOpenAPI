@@ -1,6 +1,6 @@
-﻿using FluentOpenAPI.Rules;
+﻿using FluentOpenApi.Rules;
 
-namespace FluentOpenAPI.Validators;
+namespace FluentOpenApi.Validators;
 public class RangeValidator : Validator<object>
 {
     private readonly RangeRule _rule;

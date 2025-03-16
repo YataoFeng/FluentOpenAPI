@@ -1,6 +1,6 @@
-﻿using FluentOpenAPI.Providers;
+﻿using FluentOpenApi.Providers;
 
-namespace FluentOpenAPI;
+namespace FluentOpenApi;
 public abstract class ModelSchema
 {
     public abstract void ApplyTo(FluentOpenApiProvider provider);

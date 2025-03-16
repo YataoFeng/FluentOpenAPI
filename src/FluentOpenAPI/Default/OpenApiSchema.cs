@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validators;
+﻿using FluentOpenApi.Rules;
+using FluentOpenApi.Validators;
 
-namespace FluentOpenAPI.Default;
+namespace FluentOpenApi.Default;
 public class OpenApiSchema<T> : IOpenApiSchema where T : class
 {
     private readonly Dictionary<string, List<(SchemaRule Rule, Validator? Validator)>> _rules = new();

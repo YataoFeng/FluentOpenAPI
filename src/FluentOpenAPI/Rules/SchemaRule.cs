@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace FluentOpenAPI.Rules;
+namespace FluentOpenApi.Rules;
 public abstract class SchemaRule
 {
     public abstract void Apply(OpenApiSchema schema);

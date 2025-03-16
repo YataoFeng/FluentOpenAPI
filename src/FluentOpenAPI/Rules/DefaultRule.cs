@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 
-namespace FluentOpenAPI.Rules;
+namespace FluentOpenApi.Rules;
 public class DefaultRule : SchemaRule
 {
     public IOpenApiAny DefaultValue { get; }

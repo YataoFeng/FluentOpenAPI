@@ -1,4 +1,4 @@
-﻿namespace FluentOpenAPI;
+﻿namespace FluentOpenApi;
 
 public interface IOpenApiSchema
 {

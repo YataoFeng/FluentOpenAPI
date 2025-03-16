@@ -1,4 +1,4 @@
-﻿namespace FluentOpenAPI.Validators;
+﻿namespace FluentOpenApi.Validators;
 public class RequiredValidator : Validator<object>
 {
     public override Func<object, bool> GetTypedCondition() => value => value == null;

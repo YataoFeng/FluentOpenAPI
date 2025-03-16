@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Providers;
+﻿using FluentOpenApi.Providers;
 using Microsoft.AspNetCore.Http;
 
-namespace FluentOpenAPI.Validation;
+namespace FluentOpenApi.Validation;
 internal class ValidationEndpointFilter(FluentOpenApiProvider provider) : IEndpointFilter
 {
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)

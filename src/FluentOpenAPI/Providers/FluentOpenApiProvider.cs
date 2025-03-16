@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Default;
-using FluentOpenAPI.Validation;
+﻿using FluentOpenApi.Default;
+using FluentOpenApi.Validation;
 
-namespace FluentOpenAPI.Providers;
+namespace FluentOpenApi.Providers;
 
 public class FluentOpenApiProvider
 {

@@ -1,4 +1,4 @@
-﻿namespace FluentOpenAPI.Validators;
+﻿namespace FluentOpenApi.Validators;
 public abstract class Validator<T> : Validator
 {
     public abstract Func<T, bool> GetTypedCondition();

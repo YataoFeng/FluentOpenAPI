@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Extensions;
-using FluentOpenAPI.Test.Model;
+﻿using FluentOpenApi.Extensions;
+using FluentOpenApi.Test.Model;
 
-namespace FluentOpenAPI.Test.Schemas;
+namespace FluentOpenApi.Test.Schemas;
 public class PersonSchema : ModelSchema<Person>
 {
     public PersonSchema()

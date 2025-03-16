@@ -1,7 +1,7 @@
-﻿using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validators;
+﻿using FluentOpenApi.Rules;
+using FluentOpenApi.Validators;
 
-namespace FluentOpenAPI;
+namespace FluentOpenApi;
 public interface ISchemaDescriptor
 {
     Type ModelType { get; }

@@ -1,4 +1,4 @@
-﻿namespace FluentOpenAPI.Test.Model;
+﻿namespace FluentOpenApi.Test.Model;
 public class Person
 {
     public string? Name { get; set; }

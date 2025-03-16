@@ -1,10 +1,10 @@
-﻿using FluentOpenAPI.Default;
-using FluentOpenAPI.Providers;
-using FluentOpenAPI.Rules;
-using FluentOpenAPI.Validators;
+﻿using FluentOpenApi.Default;
+using FluentOpenApi.Providers;
+using FluentOpenApi.Rules;
+using FluentOpenApi.Validators;
 using System.Linq.Expressions;
 
-namespace FluentOpenAPI;
+namespace FluentOpenApi;
 public abstract class ModelSchema<T> : ModelSchema where T : class
 {
     private readonly OpenApiSchema<T> _schema = new();

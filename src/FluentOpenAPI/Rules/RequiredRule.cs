@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace FluentOpenAPI.Rules;
+namespace FluentOpenApi.Rules;
 public class RequiredRule : SchemaRule
 {
     public string? PropertyName { get; internal set; }
