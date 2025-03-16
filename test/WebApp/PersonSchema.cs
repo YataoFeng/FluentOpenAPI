@@ -9,7 +9,7 @@ public class PersonSchema : ModelSchema<Person>
     {
         PropertyFor(x => x.Name)
             .Required()
-            .Matches(@"^[a-zA-Z\s]+$")
+            .RegularExpression(@"^[a-zA-Z\s]+$")
             .MinLength(2)
             .MaxLength(50)
             .WithDescription("Person's full name")
@@ -23,6 +23,6 @@ public class PersonSchema : ModelSchema<Person>
             .WithDescription("Contact email");
 
         PropertyFor(x => x.Items)
-            .RangeForArray(3, 10);
+            .ItemsRange(3, 10);
     }
 }

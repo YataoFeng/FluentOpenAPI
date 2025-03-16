@@ -37,7 +37,7 @@ public class ModelSchemaTests
         rules.Should().ContainKey("Name");
         var nameRules = rules["Name"];
         nameRules.Should().Contain(r => r.GetType() == typeof(RequiredRule));
-        nameRules.Should().Contain(r => r.GetType() == typeof(PatternRule) && ((PatternRule)r).Pattern == @"^[a-zA-Z\s]+$");
+        nameRules.Should().Contain(r => r.GetType() == typeof(RegularExpressionRule) && ((RegularExpressionRule)r).Pattern == @"^[a-zA-Z\s]+$");
         nameRules.Should().Contain(r => r.GetType() == typeof(MinLengthRule) && ((MinLengthRule)r).MinLength == 2);
         nameRules.Should().Contain(r => r.GetType() == typeof(MaxLengthRule) && ((MaxLengthRule)r).MaxLength == 50);
         nameRules.Should().Contain(r => r.GetType() == typeof(DescriptionRule) && ((DescriptionRule)r).Description == "Person's full name");
@@ -75,7 +75,7 @@ public class ModelSchemaTests
         var rulesAndValidators = descriptor.GetRulesAndValidators().ToList();
         var nameRules = rulesAndValidators.Where(r => r.PropertyName == "Name").ToList();
         nameRules.Should().ContainSingle(r => r.Rule is RequiredRule && r.Validator is RequiredValidator);
-        nameRules.Should().ContainSingle(r => r.Rule is PatternRule && r.Validator is PatternValidator);
+        nameRules.Should().ContainSingle(r => r.Rule is RegularExpressionRule && r.Validator is RegularExpressionValidator);
         nameRules.Should().ContainSingle(r => r.Rule is MinLengthRule && r.Validator is MinLengthValidator);
         nameRules.Should().ContainSingle(r => r.Rule is MaxLengthRule && r.Validator is MaxLengthValidator);
         nameRules.Should().ContainSingle(r => r.Rule is DescriptionRule && r.Validator == null);

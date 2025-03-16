@@ -137,8 +137,8 @@ public class ValidatorTests
     public void PatternValidator_ValidatesInvalidPattern()
     {
         // Arrange
-        var rule = new PatternRule(@"^[a-zA-Z\s]+$");
-        var validator = new PatternValidator(rule);
+        var rule = new RegularExpressionRule(@"^[a-zA-Z\s]+$");
+        var validator = new RegularExpressionValidator(rule);
         var person = new Person { Name = "123" };
 
         // Act
