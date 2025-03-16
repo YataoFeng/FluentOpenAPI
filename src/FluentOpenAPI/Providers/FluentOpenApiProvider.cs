@@ -1,5 +1,4 @@
 ﻿using FluentOpenAPI.Default;
-using FluentOpenAPI.Extensions;
 using FluentOpenAPI.Validation;
 
 namespace FluentOpenAPI.Providers;

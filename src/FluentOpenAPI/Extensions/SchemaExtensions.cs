@@ -1,5 +1,4 @@
 ﻿using FluentOpenAPI.Default;
-using FluentOpenAPI.Providers;
 using FluentOpenAPI.Rules;
 using FluentOpenAPI.Validators;
 using Microsoft.OpenApi.Any;
