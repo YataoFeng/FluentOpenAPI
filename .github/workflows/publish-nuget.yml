@@ -4,7 +4,7 @@ on:
   push:
     tags:
       - 'v*' # 仅在推送形如 v1.0.0 的标签时触发
-
+  workflow_dispatch: # 允许手动触发
 jobs:
   publish:
     runs-on: ubuntu-latest
