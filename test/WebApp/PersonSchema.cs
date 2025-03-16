@@ -1,4 +1,5 @@
-﻿using FluentOpenAPI.Extensions;
+﻿using FluentOpenAPI;
+using FluentOpenAPI.Extensions;
 
 namespace WebApp;
 
@@ -22,6 +23,6 @@ public class PersonSchema : ModelSchema<Person>
             .WithDescription("Contact email");
 
         PropertyFor(x => x.Items)
-            .Range(3, 10);
+            .RangeForArray(3, 10);
     }
 }

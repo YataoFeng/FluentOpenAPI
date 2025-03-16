@@ -41,7 +41,12 @@ public static class SchemaExtensions
         var rule = new RangeRule(min, max);
         return builder.AddRule(rule).WithValidation(new RangeValidator(rule));
     }
-
+    public static PropertyRuleBuilder<T, TProperty> RangeForArray<T, TProperty>(
+            this PropertyRuleBuilder<T, TProperty> builder, int min, int max) where T : class
+    {
+        var rule = new RangeRule(min, max, true);
+        return builder.AddRule(rule).WithValidation(new RangeValidator(rule));
+    }
     public static PropertyRuleBuilder<T, TProperty> MinLength<T, TProperty>(
         this PropertyRuleBuilder<T, TProperty> builder, int minLength) where T : class
     {
