@@ -1,4 +1,5 @@
-# FluentOpenApi 框架介绍
+
+---
 
 `FluentOpenApi` 是一个轻量级、流畅的框架，用于定义 OpenApi 架构（Schema）并集成数据验证功能。它通过链式调用的方式简化了 API 模型的定义，同时支持与 ASP.NET Core 无缝集成。本文档将介绍如何使用 `FluentOpenApi`，如何将其集成到 ASP.NET Core 项目中，以及如何进行进阶扩展。
 
@@ -10,7 +11,6 @@
 - [与 ASP.NET Core 集成](#与-aspnet-core-集成)
 - [进阶扩展规则和验证条件](#进阶扩展规则和验证条件)
 - [进阶扩展方法](#进阶扩展方法)
-- [总结](#总结)
 
 ---
 
