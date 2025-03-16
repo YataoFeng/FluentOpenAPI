@@ -5,14 +5,21 @@
 
 - **优点**：流畅的 API、易于集成、可扩展性强。
 - **适用场景**：需要规范化 API 定义和验证的 ASP.NET Core 项目。
-  
+---
+## 如何安装
+FluentOpenApi 已发布到 NuGet.org，你可以通过以下方式安装到你的 .NET 项目中。
+
+通过 NuGet 包管理器
+打开你的项目（例如在 Visual Studio 中）。
+右键项目，选择 Manage NuGet Packages。
+在搜索框中输入 FluentOpenApi。
+选择最新版本（例如 0.1.0），点击 Install。
+
 ## 目录
 - [基本使用](#基本使用)
 - [与 ASP.NET Core 集成](#与-aspnet-core-集成)
 - [进阶扩展规则和验证条件](#进阶扩展规则和验证条件)
 - [进阶扩展方法](#进阶扩展方法)
-
----
 
 ## 基本使用
 
