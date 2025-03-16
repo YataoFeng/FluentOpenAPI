@@ -1,6 +1,6 @@
 # FluentOpenApi 框架介绍
 
-`FluentOpenApi` 是一个轻量级、流畅的框架，用于定义 OpenAPI 架构（Schema）并集成数据验证功能。它通过链式调用的方式简化了 API 模型的定义，同时支持与 ASP.NET Core 无缝集成。本文档将介绍如何使用 `FluentOpenApi`，如何将其集成到 ASP.NET Core 项目中，以及如何进行进阶扩展。
+`FluentOpenApi` 是一个轻量级、流畅的框架，用于定义 OpenApi 架构（Schema）并集成数据验证功能。它通过链式调用的方式简化了 API 模型的定义，同时支持与 ASP.NET Core 无缝集成。本文档将介绍如何使用 `FluentOpenApi`，如何将其集成到 ASP.NET Core 项目中，以及如何进行进阶扩展。
 
 ## 目录
 - [基本使用](#基本使用)
@@ -61,21 +61,21 @@ public class PersonSchema : ModelSchema<Person>
 
 ## 与 ASP.NET Core 集成
 
-`FluentOpenApi` 提供了与 ASP.NET Core 的集成支持，可以自动生成 OpenAPI 文档并执行请求验证。以下是集成步骤：
+`FluentOpenApi` 提供了与 ASP.NET Core 的集成支持，可以自动生成 OpenApi 文档并执行请求验证。以下是集成步骤：
 
 ### 配置服务
-在 `Program.cs` 中配置 `FluentOpenApi` 和 OpenAPI 服务：
+在 `Program.cs` 中配置 `FluentOpenApi` 和 OpenApi 服务：
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 // 注册 FluentOpenApi 和 Schema
-builder.Services.AddFluentOpenAPI(o =>
+builder.Services.AddFluentOpenApi(o =>
 {
     o.AddSchema<PersonSchema>();
 });
 
-// 配置 OpenAPI 并添加 Schema 转换器
+// 配置 OpenApi 并添加 Schema 转换器
 builder.Services.AddOpenApi(o =>
 {
     o.AddFluentSchemaTransformer();
@@ -83,7 +83,7 @@ builder.Services.AddOpenApi(o =>
 
 var app = builder.Build();
 
-// 启用 OpenAPI 端点
+// 启用 OpenApi 端点
 app.MapOpenApi();
 app.MapScalarApiReference();
 
@@ -94,11 +94,11 @@ app.MapPost("/person", (Person person) => Results.Ok(person))
 app.Run();
 ```
 ### 工作原理
-1. **`AddFluentOpenAPI`**：
+1. **`AddFluentOpenApi`**：
    - 注册 `FluentOpenApiProvider` 和 `ModelSchema` 实例。
    - 添加验证过滤器（`ValidationEndpointFilter`）以支持 `.WithValidation()`。
 2. **`AddFluentSchemaTransformer`**：
-   - 将 `FluentOpenApi` 的规则应用到 OpenAPI 文档中，例如设置必填字段、描述和默认值。
+   - 将 `FluentOpenApi` 的规则应用到 OpenApi 文档中，例如设置必填字段、描述和默认值。
 3. **端点验证**：
    - 使用 `.WithValidation()` 启用自动验证，基于 `PersonSchema` 中的规则检查请求数据。
 
@@ -253,7 +253,7 @@ PropertyFor(x => x.Items)
 
 ## 总结
 
-`FluentOpenApi` 提供了一种优雅的方式来定义 OpenAPI 架构和验证规则。通过与 ASP.NET Core 的集成，你可以轻松生成文档并验证请求数据。框架的扩展性允许开发者添加自定义规则、验证器和链式方法，适应各种业务需求。
+`FluentOpenApi` 提供了一种优雅的方式来定义 OpenApi 架构和验证规则。通过与 ASP.NET Core 的集成，你可以轻松生成文档并验证请求数据。框架的扩展性允许开发者添加自定义规则、验证器和链式方法，适应各种业务需求。
 
 - **优点**：流畅的 API、易于集成、可扩展性强。
 - **适用场景**：需要规范化 API 定义和验证的 ASP.NET Core 项目。
