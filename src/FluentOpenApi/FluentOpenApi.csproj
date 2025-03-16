@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
 		<PackageId>FluentOpenApi</PackageId>
-		<Version>1.0.0</Version>
+		<Version>0.1.0</Version>
 		<Authors>yataofeng</Authors>
 		<Description>A fluent framework for defining OpenAPI schemas and validation in .NET</Description>
 		<RepositoryUrl>https://github.com/yataofeng/FluentOpenApi</RepositoryUrl>
