@@ -23,4 +23,14 @@ public abstract class ModelSchema<T> : ModelSchema where T : class
         var propertyName = ((MemberExpression)propertyExpression.Body).Member.Name;
         return new PropertyRuleBuilder<T, TProperty>(this, propertyName);
     }
+    protected internal void ReplaceRule(string propertyName, SchemaRule rule, Validator? validator)
+    {
+        var rules = _schema.GetRulesForProperty(propertyName);
+        var existingRule = rules.FirstOrDefault(r => r.Rule == rule && r.Validator == null);
+        if (existingRule.Rule != null)
+        {
+            rules.Remove(existingRule);
+        }
+        _schema.AddRule(propertyName, rule, validator);
+    }
 }

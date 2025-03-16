@@ -15,4 +15,9 @@ public class OpenApiSchema<T> : IOpenApiSchema where T : class
     }
 
     public ISchemaDescriptor CreateDescriptor() => new SchemaDescriptor<T>(ModelType, _rules);
+
+    public List<(SchemaRule Rule, Validator? Validator)> GetRulesForProperty(string propertyName)
+    {
+        return _rules.TryGetValue(propertyName, out var rules) ? rules : [];
+    }
 }

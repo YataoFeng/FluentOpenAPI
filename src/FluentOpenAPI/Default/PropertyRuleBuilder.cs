@@ -1,5 +1,6 @@
 ﻿using FluentOpenAPI.Rules;
 using FluentOpenAPI.Validators;
+using System.Data;
 
 namespace FluentOpenAPI.Default;
 public class PropertyRuleBuilder<T, TProperty> where T : class
@@ -25,8 +26,9 @@ public class PropertyRuleBuilder<T, TProperty> where T : class
     {
         if (_lastRule != null)
         {
-            _schema.AddRule(_propertyName, _lastRule, validator);
+            _schema.ReplaceRule(_propertyName, _lastRule, validator);
         }
         return this;
     }
+
 }
