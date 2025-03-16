@@ -1,11 +1,15 @@
-﻿namespace FluentOpenAPI;
+﻿using FluentOpenAPI.Default;
+using FluentOpenAPI.Extensions;
+using FluentOpenAPI.Validation;
+
+namespace FluentOpenAPI.Providers;
 
 public class FluentOpenApiProvider
 {
     private readonly Dictionary<Type, IOpenApiSchema> _schemas = new();
     private readonly Dictionary<Type, SchemaValidator> _validations = new();
 
-    public FluentOpenApiProvider(IEnumerable<ModelSchemaBase> schemaBases)
+    public FluentOpenApiProvider(IEnumerable<ModelSchema> schemaBases)
     {
         foreach (var schemaBase in schemaBases)
         {

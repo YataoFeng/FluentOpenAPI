@@ -1,8 +1,8 @@
-﻿using FluentOpenAPI;
+﻿using FluentOpenAPI.Extensions;
 
 namespace WebApp;
 
-public class PersonSchema : ModelSchemaBase<Person>
+public class PersonSchema : ModelSchema<Person>
 {
     public PersonSchema()
     {
@@ -20,5 +20,8 @@ public class PersonSchema : ModelSchemaBase<Person>
         PropertyFor(x => x.Email)
             .Required()
             .WithDescription("Contact email");
+
+        PropertyFor(x => x.Items)
+            .Range(3, 10);
     }
 }

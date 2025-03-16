@@ -1,20 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FluentOpenAPI.Default;
+using FluentOpenAPI.Models;
 using System.Linq.Expressions;
 
-namespace FluentOpenAPI;
-
-public class RuleEntry<T>(string name, Func<T, object?> getValue, SchemaRule rule, Validator? validator, Func<object, bool>? check)
-{
-    public string Name { get; } = name;
-    public Func<T, object?> GetValue { get; } = getValue;
-    public SchemaRule Rule { get; } = rule;
-    public Validator? Validator { get; } = validator;
-    public Func<object, bool>? Check { get; } = check;
-}
-public abstract class SchemaValidator
-{
-    public abstract ValidationResult ValidateForObject(object instance);
-}
+namespace FluentOpenAPI.Validation;
 public class SchemaValidator<T> : SchemaValidator where T : class
 {
     private readonly IOpenApiSchema _schema;
@@ -74,49 +62,5 @@ public class SchemaValidator<T> : SchemaValidator where T : class
     public override ValidationResult ValidateForObject(object instance)
     {
         return Validate((T)instance);
-    }
-}
-
-public class ValidationResult
-{
-    public bool IsValid { get; }
-    public IReadOnlyList<(string PropertyName, string ErrorMessage)> Failures { get; }
-
-    public ValidationResult(bool isValid, IEnumerable<(string PropertyName, string ErrorMessage)> failures)
-    {
-        IsValid = isValid;
-        Failures = failures.ToList().AsReadOnly();
-    }
-
-    public Dictionary<string, string[]> ToDictionary()
-    {
-        return Failures
-            .GroupBy(f => f.PropertyName)
-            .ToDictionary(g => g.Key, g => g.Select(f => f.ErrorMessage).ToArray());
-    }
-}
-
-internal class ValidationEndpointFilter(FluentOpenApiProvider provider) : IEndpointFilter
-{
-    public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
-    {
-        foreach (var arg in context.Arguments)
-        {
-            if (arg == null)
-            {
-                continue;
-            }
-            var schemaValidator = provider.GetValidator(arg.GetType());
-            if (schemaValidator == null)
-            {
-                continue;
-            }
-            var result = schemaValidator.ValidateForObject(arg);
-            if (!result.IsValid)
-            {
-                return Results.BadRequest(result.ToDictionary());
-            }
-        }
-        return await next(context);
     }
 }

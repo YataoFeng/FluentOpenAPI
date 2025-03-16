@@ -1,12 +1,16 @@
-﻿using Microsoft.OpenApi.Any;
+﻿using FluentOpenAPI.Default;
+using FluentOpenAPI.Providers;
+using FluentOpenAPI.Rules;
+using FluentOpenAPI.Validators;
+using Microsoft.OpenApi.Any;
 using System.Linq.Expressions;
 
-namespace FluentOpenAPI;
+namespace FluentOpenAPI.Extensions;
 
 public static class SchemaExtensions
 {
     public static PropertyRuleBuilder<T, TProperty> PropertyFor<T, TProperty>(
-        this ModelSchemaBase<T> schema,
+        this ModelSchema<T> schema,
         Expression<Func<T, TProperty>> propertyExpression) where T : class
     {
         var propertyName = ((MemberExpression)propertyExpression.Body).Member.Name;
@@ -101,59 +105,5 @@ public static class SchemaExtensions
         }
 
         return new OpenApiString(value.ToString() ?? string.Empty);
-    }
-}
-
-public class PropertyRuleBuilder<T, TProperty> where T : class
-{
-    private readonly ModelSchemaBase<T> _schema;
-    private readonly string _propertyName;
-    private SchemaRule? _lastRule;
-
-    public PropertyRuleBuilder(ModelSchemaBase<T> schema, string propertyName)
-    {
-        _schema = schema;
-        _propertyName = propertyName;
-    }
-
-    public PropertyRuleBuilder<T, TProperty> AddRule(SchemaRule rule)
-    {
-        _lastRule = rule;
-        _schema.AddRule(_propertyName, rule);
-        return this;
-    }
-
-    public PropertyRuleBuilder<T, TProperty> WithValidation(Validator validator)
-    {
-        if (_lastRule != null)
-        {
-            _schema.AddRule(_propertyName, _lastRule, validator);
-        }
-        return this;
-    }
-}
-
-public abstract class ModelSchemaBase
-{
-    public abstract void ApplyTo(FluentOpenApiProvider provider);
-}
-
-public abstract class ModelSchemaBase<T> : ModelSchemaBase where T : class
-{
-    private readonly OpenApiSchema<T> _schema = new();
-    protected internal void AddRule(string propertyName, SchemaRule rule, Validator? validator = null)
-    {
-        _schema.AddRule(propertyName, rule, validator);
-    }
-
-    public override void ApplyTo(FluentOpenApiProvider provider)
-    {
-        provider.AddSchema(_schema);
-    }
-
-    public PropertyRuleBuilder<T, TProperty> PropertyFor<TProperty>(Expression<Func<T, TProperty>> propertyExpression)
-    {
-        var propertyName = ((MemberExpression)propertyExpression.Body).Member.Name;
-        return new PropertyRuleBuilder<T, TProperty>(this, propertyName);
     }
 }
