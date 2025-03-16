@@ -5,5 +5,5 @@ public class ItemsMinLengthRule : SchemaRule
 {
     public int MinLength { get; }
     public ItemsMinLengthRule(int minLength) => MinLength = minLength;
-    public override void Apply(OpenApiSchema schema) => schema.MaxItems = MinLength;
+    public override void Apply(OpenApiSchema schema) => schema.MinItems = MinLength;
 }
