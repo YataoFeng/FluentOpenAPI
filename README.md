@@ -32,7 +32,7 @@ public class PersonSchema : ModelSchema<Person>
 {
     public PersonSchema()
     {
-        PropertyFor(x => x.Name)
+        For(x => x.Name)
             .Required()
             .RegularExpression(@"^[a-zA-Z\s]+$")
             .MinLength(2)
@@ -40,19 +40,19 @@ public class PersonSchema : ModelSchema<Person>
             .WithDescription("Person's full name")
             .WithDefault("John Doe");
 
-        PropertyFor(x => x.Age)
+        For(x => x.Age)
             .Range(0, 150);
 
-        PropertyFor(x => x.Email)
+        For(x => x.Email)
             .Required()
             .WithDescription("Contact email");
 
-        PropertyFor(x => x.Items)
+        For(x => x.Items)
             .ItemsRange(1, 5);
     }
 }
 ```
-- `PropertyFor`：指定模型的属性。
+- `For`：指定模型的属性。
 - 链式方法：如 `Required()`、`RegularExpression()`、`MinLength()` 等，用于定义规则和验证条件。
 
 ### 核心概念
@@ -174,7 +174,7 @@ public class PersonSchema : ModelSchema<Person>
 {
     public PersonSchema()
     {
-        PropertyFor(x => x.Email)
+        For(x => x.Email)
             .Required()
             .WithDescription("Contact email")
             .AddRule(new EmailRule())
@@ -213,7 +213,7 @@ public class PersonSchema : ModelSchema<Person>
 {
     public PersonSchema()
     {
-        PropertyFor(x => x.Name)
+        For(x => x.Name)
             .Required()
             .Matches(@"^[a-zA-Z\s]+$")
             .MinLength(2)
@@ -221,15 +221,15 @@ public class PersonSchema : ModelSchema<Person>
             .WithDescription("Person's full name")
             .WithDefault("John Doe");
 
-        PropertyFor(x => x.Age)
+        For(x => x.Age)
             .Range(0, 150);
 
-        PropertyFor(x => x.Email)
+        For(x => x.Email)
             .Required()
             .Email() // 使用自定义扩展方法
             .WithDescription("Contact email");
 
-        PropertyFor(x => x.Items)
+        For(x => x.Items)
             .RangeForArray(1, 5);
     }
 }
@@ -247,7 +247,7 @@ public static PropertyRuleBuilder<T, TProperty> WithDefaultComplex<T, TProperty>
 ```
 使用：
 ```csharp
-PropertyFor(x => x.Items)
+For(x => x.Items)
     .RangeForArray(1, 5)
     .WithDefaultComplex(() => new[] { "item1", "item2" });
 ```
