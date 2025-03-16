@@ -2,6 +2,9 @@
 
 `FluentOpenApi` 是一个轻量级、流畅的框架，用于定义 OpenApi 架构（Schema）并集成数据验证功能。它通过链式调用的方式简化了 API 模型的定义，同时支持与 ASP.NET Core 无缝集成。本文档将介绍如何使用 `FluentOpenApi`，如何将其集成到 ASP.NET Core 项目中，以及如何进行进阶扩展。
 
+- **优点**：流畅的 API、易于集成、可扩展性强。
+- **适用场景**：需要规范化 API 定义和验证的 ASP.NET Core 项目。
+  
 ## 目录
 - [基本使用](#基本使用)
 - [与 ASP.NET Core 集成](#与-aspnet-core-集成)
@@ -31,7 +34,7 @@ public class PersonSchema : ModelSchema<Person>
     {
         PropertyFor(x => x.Name)
             .Required()
-            .Matches(@"^[a-zA-Z\s]+$")
+            .RegularExpression(@"^[a-zA-Z\s]+$")
             .MinLength(2)
             .MaxLength(50)
             .WithDescription("Person's full name")
@@ -45,12 +48,12 @@ public class PersonSchema : ModelSchema<Person>
             .WithDescription("Contact email");
 
         PropertyFor(x => x.Items)
-            .RangeForArray(1, 5);
+            .ItemsRange(1, 5);
     }
 }
 ```
 - `PropertyFor`：指定模型的属性。
-- 链式方法：如 `Required()`、`Matches()`、`MinLength()` 等，用于定义规则和验证条件。
+- 链式方法：如 `Required()`、`RegularExpression()`、`MinLength()` 等，用于定义规则和验证条件。
 
 ### 核心概念
 - **规则（Rules）**：描述属性的元数据，例如是否必填、默认值等。
@@ -250,13 +253,3 @@ PropertyFor(x => x.Items)
 ```
 
 ---
-
-## 总结
-
-`FluentOpenApi` 提供了一种优雅的方式来定义 OpenApi 架构和验证规则。通过与 ASP.NET Core 的集成，你可以轻松生成文档并验证请求数据。框架的扩展性允许开发者添加自定义规则、验证器和链式方法，适应各种业务需求。
-
-- **优点**：流畅的 API、易于集成、可扩展性强。
-- **适用场景**：需要规范化 API 定义和验证的 ASP.NET Core 项目。
-
-如需更多示例或帮助，请联系框架维护者！
---- 
