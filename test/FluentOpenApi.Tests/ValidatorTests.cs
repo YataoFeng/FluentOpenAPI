@@ -86,8 +86,8 @@ public class ValidatorTests
     public void RangeValidator_ValidatesArrayLength()
     {
         // Arrange
-        var rule = new RangeRule(1, 5, true);
-        var validator = new RangeValidator(rule);
+        var rule = new ItemsRangeRule(1, 5);
+        var validator = new ItemsRangeValidator(rule);
         var person = new Person { Items = ["a", "b", "c", "d", "e", "f"] };
 
         // Act

@@ -57,7 +57,7 @@ public class ModelSchemaTests
 
         rules.Should().ContainKey("Items");
         var itemsRules = rules["Items"];
-        itemsRules.Should().Contain(r => r.GetType() == typeof(RangeRule) && ((RangeRule)r).IsArrayLength && ((RangeRule)r).Min == 1 && ((RangeRule)r).Max == 5);
+        itemsRules.Should().Contain(r => r.GetType() == typeof(ItemsRangeRule) &&  ((ItemsRangeRule)r).Min == 1 && ((ItemsRangeRule)r).Max == 5);
     }
 
     [Fact]
